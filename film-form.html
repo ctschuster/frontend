@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Optional assignment:
+To complete this optional assignment, please complete all of the
+following requirements:
+- Create an HTML page with a header and body section that includes
+  a form.
+- The form should have at least 5 input fields and one button
+  (not an input type submit button - since we have no server to
+  submit to).
+- At least one of these input fields should be validated using
+  JavaScript on an onblur event.
+-->
+
+<!-- NOTE: the javascript condition onblur for the review field is not working.-->
+
+<html>
+<head>
+<title>Film Form</title>
+<script type="text/javascript" src="film-form.js"></script>
+<link rel="stylesheet" type="text/css" href="film-form.css" media="screen" />
+</head>
+<body>
+<h1>Film Review</h1>
+<form method="POST">
+<table>
+<tr><th align=right>Film Name:</th><td><input type="text" size="45" maxlength="50" name="title"></td><td id="namestatus"></td></tr>
+<tr><th align=right>Year (Released):</th><td><input type="number" name="year" min="1895" max="2020" value="2019"></td><td id="yearstatus"></td></tr>
+<tr><th align=right>Synopsis:</th><td><input type="text" size="60" maxlength="200" name="synopsis"></td><td id="synstatus"></td></tr>
+<tr><th align=right>Review:</th><td><textarea rows="8" cols="60" wrap="physical" name="review" onblur="reviewNotEmpty();"></textarea></td><td id="reviewstatus"></td></tr>
+<tr><th align=right>MPAA Rating:</th><td>
+    <input type="radio" name="rating" value="G">G</input> &nbsp;
+    <input type="radio" name="rating" value="PG">PG</input> &nbsp;
+    <input type="radio" name="rating" value="PG-13">PG-13</input> &nbsp;
+    <input type="radio" name="rating" value="R">R</input> &nbsp;
+    <input type="radio" name="rating" value="MA">MA</input> &nbsp;
+    <input type="radio" name="rating" value="N/R">N/R</input> &nbsp;
+    <input type="radio" name="rating" value="unknown" checked>unknown</input>
+</td><td id="ratingstatus"></td></tr>
+<tr><td colspan=3 align=center><input type="submit" /></th><td>
+</table>
+</form>
+</body>
+</html>
