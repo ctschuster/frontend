@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Final assignment:
+For the final project you will create a form, complete with HTML, various form input types, CSS and
+JavaScript validation. You are encouraged to use all or most of the techniques we’ve studied in the
+course as well as any you’ve developed along the way. You may freely consult both course and Internet
+resources for ideas, inspiration and skill refreshers, but all designs, HTML, CSS and JavaScript should
+be your own. For detailed instructions, please see the Instructions section below.
+
+Step-By-Step Assignment Instructionsless 
+Assignment Topic:
+
+You can create any type of form for any type of purpose you want - a customer service form, a food
+order form, product purchase form, survey, contact form, etc.
+
+Guidelines and Instructions:
+
+You must create a form with 7 or more inputs of types you choose. We have studied a variety of input
+types, such as text, radio, checkbox, etc. You should decide a purpose for your form and design it to
+meet these requirements. The form may have any purpose you like. Examples include customer service
+form, food order form, product purchase, survey, contact form, etc.
+
+Your final submission must include the following:
+
+Include a 3-5 sentence description of the form’s purpose. Explain why you chose it and any details you care to mention.
+Include working HTML, CSS, at least one image, and JavaScript validation. For the purposes of this assignment, you may 
+use either an internal or external stylesheet, even though external is typically preferred. If you use an external 
+stylesheet or any other external files, you must upload them all and name in your documentation (see below) all of
+the files used to make the project work.
+Include any documentation that a reviewer should have in order to understand, test and evaluate the work you have submitted.
+Your form should have 7 or more inputs that represent at least 3 of the types we have studied. Do not use the type submit button.
+Inputs must have some sort of validation, including at least two JavaScript functions. Validation should occur on events such as onclick or onblur.
+A minimum of 3 separate CSS classes or IDs are used in some way.
+Use both HTML and JavaScript comments to document your work throughout your submission.
+Students may use course sample files for ideas, but do not submit course files as your project.
+Review criterialess 
+You will be assessed on your ability to meet all of the stated requirements in the instructions section, so pay
+attention to the requirements. As long as you are able to meet all of the requirements you will get full points.
+If a peer reviewer sees that you haven't met all of the requirements, the rubric is setup to dock points. For
+example, one requirement is that your form must have at least 5 inputs (though more is great) of at least
+3 different types. If your form doesn't have a minimum of 5 inputs, or these don't fall into at least 3 different
+types, then you will be docked a few points accordingly. For credit, you also must evaluate at least two of your peers.
+-->
+
+<html>
+<head>
+    <title>Film Entry Form</title>
+    <script type="text/javascript" src="./film-info.js"></script>
+    <link rel="stylesheet" type="text/css" href="film-info.css" media="screen" />
+</head>
+<body bgcolor="#E6E6FA">
+    <h1>Film Entry Form</h1>
+    For our film festival review committee, we are entering the basic information for each film.
+    These will be correlated with reviewer information later to rate and rank for consideration
+    to be included in the festival.
+    <p></p>
+
+    <form method="POST">
+    <table>
+        <tr><th align=right>Film Name:</th><td><input type="text" size="45" maxlength="50" id="filmname" onblur="checkFilmName()"></td><td id="namestatus"></td></tr>
+        <tr><th align=right>Year (Released):</th><td><input type="number" id="year" min="1895" max="2020" value="2019"></td><td id="yearstatus"></td></tr>
+        <tr><th align=right>Synopsis:</th><td><input type="text" size="60" maxlength="200" id="synopsis" onblur="checkSynopsis()"></td><td id="synstatus"></td></tr>
+        <tr><th align=right>Review:</th><td><textarea rows="8" cols="60" wrap="physical" id="review" onblur="checkReview();"></textarea></td><td id="reviewstatus"></td></tr>
+        <tr><th align=right>Length (minutes):</th><td><input type="number" id="length" min="1" max="240" onblur="validateLength();">&nbsp;&nbsp;&nbsp;<span id="lentype">??</span></td><td id="lengthstatus">.........</td></tr>
+        <tr><th align=right>Genre:</th><td>
+                <input type="checkbox" name="genre-doc">Documentary</input> &nbsp;
+                <input type="checkbox" name="genre-scifi">SciFi</input> &nbsp;
+                <input type="checkbox" name="genre-horror">Horror</input> &nbsp;
+                <input type="checkbox" name="genre-drama">Drama</input> &nbsp;
+                <input type="checkbox" name="genre-comedy">Comedy</input> &nbsp;
+                <input type="checkbox" name="genre-action">Action</input> &nbsp;
+            </td><td id="ratingstatus"></td></tr>
+            <tr><th align=right>MPAA Rating:</th><td>
+            <input type="radio" name="rating" value="G">G</input> &nbsp;
+            <input type="radio" name="rating" value="PG">PG</input> &nbsp;
+            <input type="radio" name="rating" value="PG-13">PG-13</input> &nbsp;
+            <input type="radio" name="rating" value="R">R</input> &nbsp;
+            <input type="radio" name="rating" value="MA">MA</input> &nbsp;
+            <input type="radio" name="rating" value="N/R">N/R</input> &nbsp;
+            <input type="radio" name="rating" value="unknown" checked>not yet rated</input>
+        </td><td id="ratingstatus"></td></tr>
+        <tr><td colspan=3 align=center><input type="submit" /></th><td>
+    </table>
+    </form>
+</body>
+</html>

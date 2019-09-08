@@ -1,0 +1,12 @@
+p {
+  text-indent: 1.5em;
+}
+table {
+  indent: 1.5em;
+  border: 0px solid;
+  border-collapse: collapse;
+}
+td, th {
+  border: 2px solid;
+  height: 50px;
+}
