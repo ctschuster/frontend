@@ -1,12 +1,20 @@
 p {
-  text-indent: 1.5em;
+  indent: 4em;
 }
 table {
   indent: 1.5em;
-  border: 0px solid;
+  /* border: 0px solid; */
   border-collapse: collapse;
 }
-td, th {
-  border: 2px solid;
-  height: 50px;
+td {
+ /* border: 0px solid; */
+  height: 42px;
+}
+th {
+  /* border: 0px solid; */
+  height: 42px;
+}
+td.notes {
+  font-size: 60%;
+  font-style: italic;
 }

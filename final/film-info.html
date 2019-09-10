@@ -44,41 +44,39 @@ types, then you will be docked a few points accordingly. For credit, you also mu
 <html>
 <head>
     <title>Film Entry Form</title>
-    <script type="text/javascript" src="./film-info.js"></script>
+    <script type="text/javascript" src="film-info.js"></script>
     <link rel="stylesheet" type="text/css" href="film-info.css" media="screen" />
 </head>
 <body bgcolor="#E6E6FA">
     <h1>Film Entry Form</h1>
-    For our film festival review committee, we are entering the basic information for each film.
-    These will be correlated with reviewer information later to rate and rank for consideration
-    to be included in the festival.
-    <p></p>
+    <p>For our film festival review committee, we are entering the basic information for each film.  We are additionally taking in a summary and your review of the film.
+        These will be brought together to categorize and facilitate film selection for the festival.</p>
 
     <form method="POST">
     <table>
-        <tr><th align=right>Film Name:</th><td><input type="text" size="45" maxlength="50" id="filmname" onblur="checkFilmName()"></td><td id="namestatus"></td></tr>
-        <tr><th align=right>Year (Released):</th><td><input type="number" id="year" min="1895" max="2020" value="2019"></td><td id="yearstatus"></td></tr>
-        <tr><th align=right>Synopsis:</th><td><input type="text" size="60" maxlength="200" id="synopsis" onblur="checkSynopsis()"></td><td id="synstatus"></td></tr>
-        <tr><th align=right>Review:</th><td><textarea rows="8" cols="60" wrap="physical" id="review" onblur="checkReview();"></textarea></td><td id="reviewstatus"></td></tr>
-        <tr><th align=right>Length (minutes):</th><td><input type="number" id="length" min="1" max="240" onblur="validateLength();">&nbsp;&nbsp;&nbsp;<span id="lentype">??</span></td><td id="lengthstatus">.........</td></tr>
+        <tr><th align=right>Film Name:</th><td><input type="text" size="45" maxlength="50" id="filmname" onblur="checkFilmName()"></td><td id="namestatus" class="notes"/></tr>
+        <tr><th align=right>Year (Released):</th><td><input type="number" id="year" min="1895" max="2022" onblur="checkYear()"></td><td id="yearstatus" class="notes"/></tr>
+        <tr><th align=right>Synopsis:</th><td><input type="text" size="60" maxlength="200" id="synopsis" onblur="checkSynopsis()"></td><td id="synstatus" class="notes"/></tr>
+        <tr><th align=right>Review:</th><td><textarea rows="8" cols="60" wrap="physical" id="review" onblur="checkReview();"></textarea></td><td id="reviewstatus" class="notes"/></tr>
+        <tr><th align=right>Length (minutes):</th><td><input type="number" id="length" min="1" max="240" onblur="checkLength();">&nbsp;&nbsp;&nbsp;<span id="lentype"></span></td><td id="lengthstatus" class="notes"/></tr>
         <tr><th align=right>Genre:</th><td>
-                <input type="checkbox" name="genre-doc">Documentary</input> &nbsp;
-                <input type="checkbox" name="genre-scifi">SciFi</input> &nbsp;
-                <input type="checkbox" name="genre-horror">Horror</input> &nbsp;
-                <input type="checkbox" name="genre-drama">Drama</input> &nbsp;
-                <input type="checkbox" name="genre-comedy">Comedy</input> &nbsp;
-                <input type="checkbox" name="genre-action">Action</input> &nbsp;
-            </td><td id="ratingstatus"></td></tr>
+                <input type="checkbox" id="genreDoc" onblur="checkGenre();">Documentary</input> &nbsp;
+                <input type="checkbox" id="genreScifi" onblur="checkGenre();">SciFi</input> &nbsp;
+                <input type="checkbox" id="genreHorror" onblur="checkGenre();">Horror</input> &nbsp;<br>
+                <input type="checkbox" id="genreDrama" onblur="checkGenre();">Drama</input> &nbsp;
+                <input type="checkbox" id="genreComedy" onblur="checkGenre();">Comedy</input> &nbsp;
+                <input type="checkbox" id="genreAction" onblur="checkGenre();">Action</input> &nbsp;
+            </td><td id="genrestatus" class="notes" /></tr>
             <tr><th align=right>MPAA Rating:</th><td>
-            <input type="radio" name="rating" value="G">G</input> &nbsp;
-            <input type="radio" name="rating" value="PG">PG</input> &nbsp;
-            <input type="radio" name="rating" value="PG-13">PG-13</input> &nbsp;
-            <input type="radio" name="rating" value="R">R</input> &nbsp;
-            <input type="radio" name="rating" value="MA">MA</input> &nbsp;
-            <input type="radio" name="rating" value="N/R">N/R</input> &nbsp;
-            <input type="radio" name="rating" value="unknown" checked>not yet rated</input>
-        </td><td id="ratingstatus"></td></tr>
-        <tr><td colspan=3 align=center><input type="submit" /></th><td>
+            <input type="radio" name="rating" value="G" onblur="checkRating();">G</input> &nbsp;
+            <input type="radio" name="rating" value="PG" onblur="checkRating();">PG</input> &nbsp;
+            <input type="radio" name="rating" value="PG-13" onblur="checkRating();">PG-13</input> &nbsp;
+            <input type="radio" name="rating" value="R" onblur="checkRating();">R</input> &nbsp;
+            <input type="radio" name="rating" value="MA" onblur="checkRating();">MA</input> &nbsp;
+            <input type="radio" name="rating" value="N/R" onblur="checkRating();">N/R</input> &nbsp;
+            <input type="radio" name="rating" value="unknown" onblur="checkRating();" checked>not yet rated</input>
+        </td><td id="ratingstatus" class="notes" /></tr>
+<!--    <tr><td colspan=3 align=center><input type="submit" /></th><td> -->
     </table>
     </form>
 </body>
